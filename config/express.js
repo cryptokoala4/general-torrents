@@ -6,6 +6,9 @@ var cookieParser   = require('cookie-parser');
 var bodyParser     = require('body-parser');
 var compress       = require('compression');
 var methodOverride = require('method-override');
+var passport       = require('passport');
+var session        = require('express-session');
+var flash          = require('connect-flash');
 
 module.exports = function(app, config) {
   var env = process.env.NODE_ENV || 'development';
@@ -24,12 +27,28 @@ module.exports = function(app, config) {
   app.use(compress());
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
+  app.use(session({
+    secret: process.env.PASSPORT_SECRET || 'WDI-GENERAL-ASSEMBLY-EXPRESS',
+    resave: true,
+    saveUninitialized: true
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use(flash());
 
+  // PASSPORT SETUP
+  require(config.root + "/config/passport.js")(passport);
 
   // CONTROLLER SETUP
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function (controller) {
     require(controller)(app);
+  });
+
+  // API CONTROLLER SETUP
+  var apiControllers = glob.sync(config.root + '/app/controllers/api/*.js');
+  apiControllers.forEach(function (apiController) {
+    require(apiController)(app);
   });
 
   // DEVELOPMENT UTIL MIDDLEWARES (Show Errors)
@@ -52,11 +71,11 @@ module.exports = function(app, config) {
 
   app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-      res.render('error', {
-        message: err.message,
-        error: {},
-        title: 'error'
-      });
+    res.render('error', {
+      message: err.message,
+      error: err,
+      title: 'error'
+    });
   });
 
 };

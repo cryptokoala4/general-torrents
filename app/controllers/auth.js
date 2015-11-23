@@ -2,35 +2,44 @@ var express  = require('express');
 var router   = express.Router();
 var mongoose = require('mongoose');
 var User     = require('../models/user');
+var passport = require('passport');
 
 module.exports = function (app) {
   app.use('/', router);
 };
 
+router.get('/signup', function (req, res, next) {
+  res.render('signup.ejs', { message: req.flash('signupMessage') });
+});
+
 // SIGN-UP: Create a new User
 router.post('/signup', function (req, res, next) {
-  var userObject = new User(req.body.user);
+  passport.authenticate('local-signup', {
+    successRedirect: '/',
+    failureRedirect: '/signup',
+    failureFlash: true })(req, res, next);
+});
 
-  userObject.save(function(err, user) {
-    if (err) { return res.status(401).send({message: err.errmsg});     }
-    else     { return res.status(200).send({message: "user created"}); }
-  });
+router.get('/signin', function (req, res, next) {
+  res.render('signin.ejs', { message: req.flash('signinMessage') });
 });
 
 // SIGN-IN: Authenticate the user
-router.post("/signin", function(req, res) {
-  var userParams = req.body.user;
-
-  User.findOne({ email: userParams.email }, function(err, user) {
-
-    user.authenticate(userParams.password, function(err, isMatch) {
-      if (err) throw err;
-
-      if (isMatch) {
-        return res.status(200).send({message: "Valid Credentials !"});
-      } else {
-        return res.status(401).send({message: "The credentials provided do not correspond to a registered user"});
-      };
-    });
-  });
+router.post("/signin", function (req, res, next) {
+  passport.authenticate('local-signin', {
+    successRedirect: '/',
+    failureRedirect: '/signin',
+    failureFlash: true })(req, res, next);
 });
+
+router.get("/signout", function (req, res, next){
+  req.logout();
+  res.redirect("/");
+});
+
+router.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email'} ));
+
+router.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: '/',
+  failureRedirect: '/'
+}));
