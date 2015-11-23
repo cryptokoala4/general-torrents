@@ -9,7 +9,7 @@ module.exports = function (app) {
 };
 
 router.get('/signup', function (req, res, next) {
-  res.render('signup.ejs', { message: req.flash('signupMessage') });
+  res.render('auth/signup.ejs', { message: req.flash('signupMessage') });
 });
 
 // SIGN-UP: Create a new User
@@ -21,7 +21,7 @@ router.post('/signup', function (req, res, next) {
 });
 
 router.get('/signin', function (req, res, next) {
-  res.render('signin.ejs', { message: req.flash('signinMessage') });
+  res.render('auth/signin.ejs', { message: req.flash('signinMessage') });
 });
 
 // SIGN-IN: Authenticate the user

@@ -9,6 +9,7 @@ var methodOverride = require('method-override');
 var passport       = require('passport');
 var session        = require('express-session');
 var flash          = require('connect-flash');
+var expressLayouts = require('express-ejs-layouts');
 
 module.exports = function(app, config) {
   var env = process.env.NODE_ENV || 'development';
@@ -18,8 +19,10 @@ module.exports = function(app, config) {
   // MIDDLEWARE SETUP
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'ejs');
+  app.set('layout', 'layouts/layout');
 
   // app.use(favicon(config.root + '/public/img/favicon.ico'));
+  app.use(expressLayouts);
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended: true }));
@@ -61,7 +64,7 @@ module.exports = function(app, config) {
   if(app.get('env') === 'development'){
     app.use(function (err, req, res, next) {
       res.status(err.status || 500);
-      res.render('error', {
+      res.render('layouts/error', {
         message: err.message,
         error: err,
         title: 'error'
@@ -71,7 +74,7 @@ module.exports = function(app, config) {
 
   app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render('layouts/error', {
       message: err.message,
       error: err,
       title: 'error'
