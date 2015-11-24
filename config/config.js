@@ -24,9 +24,9 @@ var config = {
   production: {
     root: rootPath,
     app: {
-      name: 'wdi-express'
+      name: 'general-torrents'
     },
-    port: 3000,
+    port: (process.env.PORT || 3000 ),
     db: 'mongodb://localhost/wdi-express-production'
   }
 };
