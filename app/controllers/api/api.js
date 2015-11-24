@@ -36,14 +36,46 @@ router.get('/api/torrents', function (req, res) {
 })
 
 // CREATE
-router.post('/api/torrents', function (req,res) {
+router.post('/api/torrents', function (req, res) {
   var torrent = new Torrent(req.body);
   torrent.save(function(error){
     if (error) {
-      res.json({message: "Torrent create failed"});
+      res.json({message: "Torrent create failed" + error});
     } else {
       res.json({torrent: torrent});
     }
   });
 })
 
+// SHOW
+router.get('/api/torrents/:id', function (req, res) {
+  Torrent.findById({_id: req.params.id}, function (err, torrent) {
+    if(err) {
+      res.json({message: "Could not find Torrent" + err});
+    } else {
+      res.json({torrent: torrent});
+    }
+  });
+})
+
+// UPDATE
+router.put('/api/torrents/:id', function (req, res) {
+  Torrent.findByIdAndUpdate(req.params.id, req.body, function (err, torrent) {
+    if(err) {
+      res.json({message: "Could not find Torrent" + err});
+      } else {
+      res.json({message: 'Torrent successfully updated'});
+    }
+  });
+})
+
+// DELETE
+router.delete('/api/torrents/:id', function (req, res) {
+  Torrent.remove({_id: req.params.id}, function (err, torrent){
+    if(err) {
+      res.json({message: 'Could not delete Torrent '+ err});
+    } else {
+      res.json({message: 'Torrent successfully deleted'});
+    }
+  });
+})
