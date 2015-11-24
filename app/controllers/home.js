@@ -11,3 +11,4 @@ router.get('/', function (req, res, next) {
     title: 'Generator-Express MVC'
   });
 });
+

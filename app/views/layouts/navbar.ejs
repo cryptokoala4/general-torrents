@@ -1,0 +1,18 @@
+<div class="navbar navbar-fixed-top navbar-default">
+  <div class="container nav-left">
+    <div class="navbar-header">
+      <a href="/"><img id="logo-nav" src="/images/ga.png"></a>
+        <ul class="nav navbar-fixed-top navbar-nav navbar-right">
+        <% if(user != undefined){ %>
+          <h2>Below is the data sent by facebook</h2>
+          <pre>
+            <%= user.fb %>
+          </pre>
+          <a href="/logout">Logout</a>
+        <% } else { %>
+          <a href="/auth/facebook">Login with Facebook</a>
+        <% } %>
+        </ul>
+    </div>
+  </div>
+</div>

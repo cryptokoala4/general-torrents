@@ -42,6 +42,21 @@ module.exports = function(app, config) {
   // PASSPORT SETUP
   require(config.root + "/config/passport.js")(passport);
 
+  // GLOBAL USER EJS
+  app.use(function (req, res, next) {
+    global.user = req.user;
+    next()
+  });
+
+  // FB USERS
+app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email'} ));
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', {
+    successRedirect: '/',
+    failureRedirect: '/'
+  })
+);
+
   // CONTROLLER SETUP
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function (controller) {
