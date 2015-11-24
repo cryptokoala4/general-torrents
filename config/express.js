@@ -57,6 +57,15 @@ app.get('/auth/facebook/callback',
   })
 );
 
+  // GH USERS
+app.get('/auth/github', passport.authenticate('github', { scope: 'email'} ));
+app.get('/auth/github/callback',
+  passport.authenticate('github', {
+    successRedirect: '/',
+    failureRedirect: '/'
+  })
+);
+
   // CONTROLLER SETUP
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function (controller) {

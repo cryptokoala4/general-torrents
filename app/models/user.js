@@ -14,6 +14,13 @@ var UserSchema = new Schema({
     firstName: String,
     lastName: String,
     email: String
+  },
+  gh: {
+    id: String,
+    access_token: String,
+    username: String,
+    displayName: String,
+    email: String
   }
 });
 

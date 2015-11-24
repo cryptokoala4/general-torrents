@@ -1,6 +1,7 @@
 var config           = require('./config');
 var LocalStrategy    = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
+var GitHubStrategy   = require('passport-github').Strategy;
 var User             = require(config.root + '/app/models/user');
 
 module.exports = function(passport) {
@@ -99,4 +100,36 @@ module.exports = function(passport) {
       });
     });
   }));
-};
+
+
+passport.use(new GitHubStrategy({
+    clientID: process.env.GITHUB_API_KEY,
+    clientSecret: process.env.GITHUB_API_SECRET,
+    callbackURL:  process.env.GITHUB_CALLBACK || 'http://localhost:3000/auth/facebook/callback'
+  },
+  function(accessToken, refreshToken, profile, done) {
+    // asynchronous verification, for effect...
+    User.findOne({ 'gh.id': profile.id }, function (err, user) {
+        if (err) return done(err);
+        if (user) {
+          return done(null, user);
+        } else {
+
+          var newUser = new User();
+          console.log(newUser)
+          newUser.gh.id           = profile.id;
+          newUser.gh.access_token = accessToken;
+          newUser.gh.username    = profile.username;
+          newUser.gh.displayName     = profile.displayName;
+          // newUser.gh.email        = profile.emails[0].value;
+          newUser.save(function(err) {
+            if (err)
+              throw err;
+
+            return done(null, newUser);
+          });
+        }
+    });
+  }
+));
+}
