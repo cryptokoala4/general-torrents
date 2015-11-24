@@ -22,7 +22,7 @@ var config = {
   },
 
   production: {
-    root: rootPath,
+    root: "http://general-developers.herokuapp.com",
     app: {
       name: 'general-torrents'
     },
