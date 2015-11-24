@@ -43,3 +43,11 @@ router.get('/auth/facebook/callback', passport.authenticate('facebook', {
   successRedirect: '/',
   failureRedirect: '/'
 }));
+
+  // GH USERS
+router.get('/auth/github', passport.authenticate('github', { scope: 'email'} ));
+
+router.get('/auth/github/callback', passport.authenticate('github', {
+    successRedirect: '/',
+    failureRedirect: '/'
+  }));
