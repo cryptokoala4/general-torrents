@@ -1,1 +1,20 @@
-<h1>header</h1>
+<div class="navbar navbar-fixed-top navbar-default">
+<div class="container nav-left">
+  <div class="navbar-header">
+    <a href="/"><img id="logo-nav" src="/images/ga.png"></a>
+      <ul class="nav navbar-fixed-top navbar-nav navbar-right">
+      <% if(user != undefined){ %>
+        <pre class="nav-logged">
+          <img src="/images/login_fb.png"> <%= user.fb.firstName + " " + user.fb.lastName %>
+        </pre>
+        <a href="/signout">Logout</a>
+      <% } else { %>
+        <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
+        <span class="fa fa-facebook"></span> Sign in with Facebook</a>
+        <a href="/auth/facebook" class="btn btn-block btn-social btn-github">
+        <span class="fa fa-github"></span> Sign in with Github</a>
+      <% } %>
+      </ul>
+  </div>
+</div>
+</div>
