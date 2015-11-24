@@ -105,7 +105,7 @@ module.exports = function(passport) {
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_API_KEY,
     clientSecret: process.env.GITHUB_API_SECRET,
-    callbackURL:  process.env.GITHUB_CALLBACK || 'http://localhost:3000/auth/facebook/callback'
+    callbackURL:  process.env.GITHUB_CALLBACK || 'http://localhost:3000/auth/github/callback'
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
