@@ -2,8 +2,6 @@ var config           = require('./config');
 var LocalStrategy    = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var User             = require(config.root + '/app/models/user');
-var path = require('path'),
-    rootPath = path.normalize(__dirname + '/..')
 
 module.exports = function(passport) {
   passport.serializeUser(function(user, done) {
