@@ -1,34 +1,27 @@
-.nav-header {
-  background: #F5F1F1;
-  margin-bottom: auto;
-  height: 52px;
+body {
+  min-width: 400px;
+}
+
+a.navbar-brand {
+  margin-left: 10px;
+  padding: 5px;
+  height: 68px;
+  width: 68px;
 }
 
 #logo-nav {
-  width: 55px;
-  /*content:url('/');*/
+  width: 100%;
 }
 
-.nav-left {
-  width: 90%;
-}
-
-.navbar-right {
-  float:right!important;
-  margin-left: 80%;
-}
-
-.navbar-header {
-  width: 90%;
-
+ul.navbar-right {
+  margin: 0;
+  padding-top: 13.5px;
 }
 
 .nav-logged {
   font-family: 'Helvetica','Arial','sans-serif';
   font-size: 15px;
-  padding: 2px;
-  border: 0px;
-  background-color: inherit;
+  padding-top: 7.5px;
 }
 
 .profile-box {
@@ -44,3 +37,32 @@
 .btn-block {
   width: 195px;
 }
+
+.navbar-default {
+  height: 68px;
+}
+
+.nav-title {
+  margin-left: 30px;
+
+}
+
+.stylish-input-group .input-group-addon{
+    background: white !important;
+    border-radius: 0 !important;
+}
+.stylish-input-group .form-control{
+  border-right:0;
+  box-shadow:0 0 0;
+  border-color:#ccc;
+  border-radius: 0 !important;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.input-group {
+  width: 220px;
+}
+

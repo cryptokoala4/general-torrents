@@ -16,7 +16,7 @@ function authenticatedUser(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   } else {
-    return res.json({message: "Please Login"});
+    return res.status(401).json({message: "Please Login"});
   }
 }
 
@@ -37,7 +37,7 @@ router.get('/api/torrents', function (req, res) {
 
 // CREATE
 router.post('/api/torrents', function (req, res) {
-  var torrent = new Torrent(req.body);
+  var torrent = new Torrent(req.body.torrent);
   torrent.save(function(error){
     if (error) {
       res.json({message: "Torrent create failed" + error});
