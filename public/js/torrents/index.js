@@ -1,7 +1,7 @@
 $(function(){
   API.getTorrents().then(function (torrents) {
     torrents.forEach(function(torrent){
-      var category = torrent.category;
+      var category = torrent.category.toLowerCase();
       var appendTarget = $("table." + category + " > tbody");
       var unformatedDate = new Date(torrent.date)
       var formated = unformatedDate.toDateString();
