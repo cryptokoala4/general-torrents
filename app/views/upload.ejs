@@ -1,0 +1,43 @@
+<fieldset>
+  <legend>Torrent Upload</legend>
+  <form class="container" action="/torrents"enctype="multipart/form-data" method="POST">
+      <div class="form-group">
+        <input type="file" name="file">
+      </div>
+      <div class="form-group">
+        <select list="category" class="form-control" type="text" name="torrent[category]">
+          <datalist id="category">
+            <option selected="selected">Select a category</option>
+            <option value="Video">Video</option>
+            <option value="Book">Book</option>
+            <option value="App">App</option>
+            <option value="Music">Music</option>
+            <option value="Other">Other</option>
+          </datalist>
+      </div>
+      <div class="form-group">
+        <input class="form-control" placeholder="Torrent Name" type="text" name="torrent[name]">
+      </div>
+      <div class="form-group">
+        <input class="form-control" placeholder="Description" type="text" name="torrent[details]">
+      </div>
+    <div class="form-group">
+      <button class="btn btn-success">Submit</button>
+    </div>
+  </form>
+</fieldset>
+
+<!--   category:           { type: String },
+  upload_torrent:     { type: String },
+  name:               { type: String },
+  submitter:          { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  details:            { type: String }, -->
+
+<!-- <select class="form-control">
+    <option value="one">One</option>
+    <option value="two">Two</option>
+    <option value="three">Three</option>
+    <option value="four">Four</option>
+    <option value="five">Five</option>
+</select>
+ -->

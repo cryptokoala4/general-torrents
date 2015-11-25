@@ -1,5 +1,5 @@
 body {
-  min-width: 400px;
+  min-width: 500px;
 }
 
 a.navbar-brand {
@@ -50,6 +50,7 @@ ul.navbar-right {
 .stylish-input-group .input-group-addon{
     background: white !important;
     border-radius: 0 !important;
+
 }
 .stylish-input-group .form-control{
   border-right:0;
@@ -57,6 +58,7 @@ ul.navbar-right {
   border-color:#ccc;
   border-radius: 0 !important;
 }
+
 .stylish-input-group button{
     border:0;
     background:transparent;
@@ -66,12 +68,16 @@ ul.navbar-right {
   width: 220px;
 }
 
+.torrent-download {
+  width: 1%;
+}
+
 .torrent-title {
-  width: 35%;
+  width: 30%;
 }
 
 .torrent-details {
-  width: 10%;
+  width: 1%;
 }
 
 .torrent-size {
@@ -79,7 +85,7 @@ ul.navbar-right {
 }
 
 .torrent-submitter {
-  width: 15%;
+  width: 10%;
 }
 
 .torrent-files {
@@ -87,7 +93,7 @@ ul.navbar-right {
 }
 
 .torrent-date {
-  width: 15%;
+  width: 10%;
 }
 
 
@@ -102,3 +108,12 @@ ul.navbar-right {
 .comment-icon {
   width: 30px;
 }
+
+table > tbody > tr.torrent > td {
+  vertical-align: middle;
+}
+
+.upload {
+  vertical-align: middle;
+}
+

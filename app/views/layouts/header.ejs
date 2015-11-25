@@ -11,12 +11,17 @@
       <div class="input-group stylish-input-group">
         <input type="text" class="form-control"  placeholder="Search" >
         <span class="input-group-addon"><button type="submit"><span class="glyphicon glyphicon-search"></span></button></span>
+
       </div>
+<!--  -->
     </form>
   </div>
 
   <div class="collapse navbar-collapse" id="navbar-collapse">
     <ul class="navbar-right list-inline">
+      <li>
+        <a href="torrents/upload">Upload Torrent  <img class="comment-icon" src="/images/torrent-ul.png"></a>
+      </li>
     <% if(user){ %>
       <div class="nav-logged">
         <% if(user.fb.access_token){ %>
