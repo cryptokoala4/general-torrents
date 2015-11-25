@@ -1,19 +1,27 @@
-#logo-nav {
-  width: 55px;
-  margin-left: 20px;
-  margin-top: 5px;
+body {
+  min-width: 400px;
 }
 
-.navbar-right {
-  float:right;
-  margin-right: 20px;
-  padding-top: 2px;
+a.navbar-brand {
+  margin-left: 10px;
+  padding: 5px;
+  height: 68px;
+  width: 68px;
+}
+
+#logo-nav {
+  width: 100%;
+}
+
+ul.navbar-right {
+  margin: 0;
+  padding-top: 13.5px;
 }
 
 .nav-logged {
   font-family: 'Helvetica','Arial','sans-serif';
   font-size: 15px;
-  padding-top: 15px;
+  padding-top: 7.5px;
 }
 
 .profile-box {
@@ -28,13 +36,33 @@
 
 .btn-block {
   width: 195px;
-  height: 29px;
 }
 
 .navbar-default {
   height: 68px;
 }
 
-#logout-btn {
+.nav-title {
+  margin-left: 30px;
 
 }
+
+.stylish-input-group .input-group-addon{
+    background: white !important;
+    border-radius: 0 !important;
+}
+.stylish-input-group .form-control{
+  border-right:0;
+  box-shadow:0 0 0;
+  border-color:#ccc;
+  border-radius: 0 !important;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.input-group {
+  width: 220px;
+}
+
