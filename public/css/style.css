@@ -1,34 +1,19 @@
-.nav-header {
-  background: #F5F1F1;
-  margin-bottom: auto;
-  height: 52px;
-}
-
 #logo-nav {
   width: 55px;
-  /*content:url('/');*/
-}
-
-.nav-left {
-  width: 90%;
+  margin-left: 20px;
+  margin-top: 5px;
 }
 
 .navbar-right {
-  float:right!important;
-  margin-left: 80%;
-}
-
-.navbar-header {
-  width: 90%;
-
+  float:right;
+  margin-right: 20px;
+  padding-top: 2px;
 }
 
 .nav-logged {
   font-family: 'Helvetica','Arial','sans-serif';
   font-size: 15px;
-  padding: 2px;
-  border: 0px;
-  background-color: inherit;
+  padding-top: 15px;
 }
 
 .profile-box {
@@ -43,4 +28,13 @@
 
 .btn-block {
   width: 195px;
+  height: 29px;
+}
+
+.navbar-default {
+  height: 68px;
+}
+
+#logout-btn {
+
 }

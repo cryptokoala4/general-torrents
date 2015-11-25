@@ -1,14 +1,15 @@
-<div class="navbar navbar-fixed-top navbar-default">
-<div class="container nav-left">
-  <div class="navbar-header">
+<div class="navbar navbar-default">
     <a href="/"><img id="logo-nav" src="/images/ga.png"></a>
-      <ul class="nav navbar-fixed-top navbar-nav navbar-right">
-      <% if(user != undefined){ %>
-        <pre class="nav-logged">
-          <img src="/images/login_fb.png"> <%= user.fb.firstName + " " + user.fb.lastName %>
-          <img src="/images/login_gh.png"> <%= " " + user.gh.username %>
-        </pre>
-        <a href="/signout">Logout</a>
+      <ul class="navbar-right">
+      <% if(user){ %>
+        <div class="nav-logged">
+          <% if(user.fb.access_token){ %>
+            <img src="/images/login_fb.png"><span><%= "  " + user.fb.firstName + " " + user.fb.lastName %></span>
+          <% } else { %>
+            <img src="/images/login_gh.png"><span><%= "  " + user.gh.username %></span>
+          <% } %>
+          <a id="logout-btn" href="/signout">Logout<p class="glyphicon glyphicon-log-out"></p></a>
+        </div>
       <% } else { %>
         <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
         <span class="fa fa-facebook"></span> Sign in with Facebook</a>
@@ -16,6 +17,4 @@
         <span class="fa fa-github"></span> Sign in with Github</a>
       <% } %>
       </ul>
-  </div>
-</div>
 </div>
