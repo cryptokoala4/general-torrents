@@ -22,6 +22,7 @@ ul.navbar-right {
   font-family: 'Helvetica','Arial','sans-serif';
   font-size: 15px;
   padding-top: 7.5px;
+  color: white;
 }
 
 .profile-box {
@@ -99,6 +100,7 @@ ul.navbar-right {
 
 .table-responsive {
   margin-left: 20px;
+ background-color: rgba(245, 245, 245, 0.5);
 }
 
 .align-text-center {
@@ -117,3 +119,44 @@ table > tbody > tr.torrent > td {
   vertical-align: middle;
 }
 
+#navbar-collapse {
+background-color: #141313;
+/*border: 2px solid black;*/
+}
+
+.navbar-header {
+  height: 73px;
+  background-color: #141313;
+}
+
+.center-upload {
+  padding: 0 !important;
+}
+
+body {
+  background-color: rgba(245, 245, 245, 0.75);
+  background-image: url("/images/background.jpg");
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0;
+  height: 690px;
+  max-width: 1600px;
+  background-position: top right;
+  margin: auto;
+}
+
+.upload-div {
+  background-color: rgba(245, 245, 245, 0.75);
+  width: 500px;
+}
+
+.btn-success {
+  background-color:black;
+  border-color:blue;
+}
+
+.resizedTextbox {
+}

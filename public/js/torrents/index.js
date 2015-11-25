@@ -14,7 +14,7 @@ $(function(){
                     "<td>" +
                       '<a href="https://s3.amazonaws.com/general-torrents/' + torrent.upload_torrent + '"><img class="comment-icon" src="/images/torrent-dl.png"></a>' +
                     "</td>" +
-                    '<td><a href="/torrents/' + torrent._id + '">' + torrent.name + '</a></td>' +
+                    '<td><a href="https://s3.amazonaws.com/general-torrents/' + torrent.upload_torrent + '">' + torrent.name + '</a></td>' +
                     "<td>" + submitterName + "</td>" +
                     '<td data-toggle="tooltip"  data-placement="top" title="' + torrent.details + '">' +
                       '<a href="/torrents/' + torrent._id + '"><img class="comment-icon" src="/images/comment-icon.png"></a>' +
@@ -33,3 +33,4 @@ $(function(){
   }, errorHandling);
 });
 
+// '<td><a href="/torrents/' + torrent._id + '">' + torrent.name + '</a></td>' +

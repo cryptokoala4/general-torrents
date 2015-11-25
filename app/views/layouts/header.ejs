@@ -20,16 +20,16 @@
   <div class="collapse navbar-collapse" id="navbar-collapse">
     <ul class="navbar-right list-inline">
       <li>
-        <a href="torrents/upload">Upload Torrent  <img class="comment-icon" src="/images/torrent-ul.png"></a>
+        <a class="center-upload" href="torrents/upload"><strong>Upload Torrent  </strong><img class="comment-icon" src="/images/torrent-ul.png"></a>
       </li>
     <% if(user){ %>
-      <div class="nav-logged">
+      <div class="nav-logged center-upload">
         <% if(user.fb.access_token){ %>
           <img src="/images/login_fb.png"><span><%= "  " + user.fb.firstName + " " + user.fb.lastName %></span>
         <% } else { %>
           <img src="/images/login_gh.png"><span><%= "  " + user.gh.username %></span>
         <% } %>
-        <a href="/signout">Logout<p class="glyphicon glyphicon-log-out"></p></a>
+        <a href="/signout"><strong>Logout</strong><p class="glyphicon glyphicon-log-out"></p></a>
       </div>
     <% } else { %>
       <li>
