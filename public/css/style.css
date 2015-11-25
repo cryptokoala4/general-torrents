@@ -35,7 +35,7 @@ ul.navbar-right {
 }
 
 .btn-block {
-  width: 195px;
+  width: 198px;
 }
 
 .navbar-default {
@@ -66,3 +66,39 @@ ul.navbar-right {
   width: 220px;
 }
 
+.torrent-title {
+  width: 35%;
+}
+
+.torrent-details {
+  width: 10%;
+}
+
+.torrent-size {
+  width: 10%;
+}
+
+.torrent-submitter {
+  width: 15%;
+}
+
+.torrent-files {
+  width: 6%;
+}
+
+.torrent-date {
+  width: 15%;
+}
+
+
+.table-responsive {
+  margin-left: 20px;
+}
+
+.align-text-center {
+  text-align: center;
+}
+
+.comment-icon {
+  width: 30px;
+}
