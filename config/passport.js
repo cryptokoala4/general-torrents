@@ -116,12 +116,12 @@ passport.use(new GitHubStrategy({
         } else {
 
           var newUser = new User();
-          console.log(newUser)
-          newUser.gh.id           = profile.id;
-          newUser.gh.access_token = accessToken;
-          newUser.gh.username    = profile.username;
+          console.log(profile)
+          newUser.gh.access_token    = accessToken;
+          newUser.gh.id              = profile.id;
+          newUser.gh.username        = profile.username;
           newUser.gh.displayName     = profile.displayName;
-          // newUser.gh.email        = profile.emails[0].value;
+          // newUser.gh.email           = profile.emails[0].value;
           newUser.save(function(err) {
             if (err)
               throw err;
