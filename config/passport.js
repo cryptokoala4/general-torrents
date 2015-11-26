@@ -105,7 +105,7 @@ module.exports = function(passport) {
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_API_KEY,
     clientSecret: process.env.GITHUB_API_SECRET,
-    callbackURL:  process.env.GITHUB_CALLBACK || 'http://localhost:3000/auth/github/callback'
+    callbackURL:  process.env.GITHUB_CALLBACK || 'http://localhost:3000/auth/github/callback',
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
@@ -116,7 +116,7 @@ passport.use(new GitHubStrategy({
         } else {
 
           var newUser = new User();
-          console.log(profile)
+          // console.log(profile)
           newUser.gh.access_token    = accessToken;
           newUser.gh.id              = profile.id;
           newUser.gh.username        = profile.username;

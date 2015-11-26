@@ -101,10 +101,15 @@ ul.navbar-right {
 .table-responsive {
   margin-left: 20px;
  background-color: rgba(245, 245, 245, 0.7);
+ border: 1px solid #454E45;
 }
 
 .align-text-center {
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bolder;
+  color: #FF0030;
+  text-shadow: 0.4px 0px #37308B;
 }
 
 .comment-icon {
@@ -160,3 +165,9 @@ body {
 
 .resizedTextbox {
 }
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #B9B9B9;
+ }
+

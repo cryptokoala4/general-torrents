@@ -1,10 +1,12 @@
 $(function(){
   API.getTorrents().then(function (torrents) {
+    // console.log(torrents);
     torrents.forEach(function(torrent){
       var category = torrent.category.toLowerCase();
       var appendTarget = $("table." + category + " > tbody");
       var unformatedDate = new Date(torrent.date)
       var formated = unformatedDate.toDateString();
+      // console.log(torrent)
       var localName = torrent.submitter.local ? torrent.submitter.local.email : null ;
       var fbName = torrent.submitter.fb ? torrent.submitter.fb.firstName : null ;
       var ghName = torrent.submitter.gh ? torrent.submitter.gh.username : null ;
