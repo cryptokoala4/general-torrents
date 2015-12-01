@@ -7,6 +7,13 @@ var API_WRAPPER = function () {
       method: "GET"
     });
   };
+
+  this.getTorrents = function () {
+    return $.ajax({
+      url: this.URL_BASE + '/api/torrents',
+      method: "GET"
+    });
+  };
 };
 
 var API = new API_WRAPPER();

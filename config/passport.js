@@ -11,7 +11,7 @@ module.exports = function(passport) {
 
   passport.deserializeUser(function(id, callback) {
     User.findById(id, function(err, user) {
-      callback(err, user);
+      callback(err, user); // ---> req.user
     });
   });
 
@@ -105,7 +105,7 @@ module.exports = function(passport) {
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_API_KEY,
     clientSecret: process.env.GITHUB_API_SECRET,
-    callbackURL:  process.env.GITHUB_CALLBACK || 'http://localhost:3000/auth/github/callback'
+    callbackURL:  process.env.GITHUB_CALLBACK || 'http://localhost:3000/auth/github/callback',
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
@@ -116,12 +116,12 @@ passport.use(new GitHubStrategy({
         } else {
 
           var newUser = new User();
-          console.log(newUser)
-          newUser.gh.id           = profile.id;
-          newUser.gh.access_token = accessToken;
-          newUser.gh.username    = profile.username;
+          // console.log(profile)
+          newUser.gh.access_token    = accessToken;
+          newUser.gh.id              = profile.id;
+          newUser.gh.username        = profile.username;
           newUser.gh.displayName     = profile.displayName;
-          // newUser.gh.email        = profile.emails[0].value;
+          // newUser.gh.email           = profile.emails[0].value;
           newUser.save(function(err) {
             if (err)
               throw err;

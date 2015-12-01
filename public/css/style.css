@@ -1,5 +1,5 @@
 body {
-  min-width: 400px;
+  min-width: 500px;
 }
 
 a.navbar-brand {
@@ -22,6 +22,7 @@ ul.navbar-right {
   font-family: 'Helvetica','Arial','sans-serif';
   font-size: 15px;
   padding-top: 7.5px;
+  color: white;
 }
 
 .profile-box {
@@ -35,7 +36,7 @@ ul.navbar-right {
 }
 
 .btn-block {
-  width: 195px;
+  width: 198px;
 }
 
 .navbar-default {
@@ -50,6 +51,7 @@ ul.navbar-right {
 .stylish-input-group .input-group-addon{
     background: white !important;
     border-radius: 0 !important;
+
 }
 .stylish-input-group .form-control{
   border-right:0;
@@ -57,6 +59,7 @@ ul.navbar-right {
   border-color:#ccc;
   border-radius: 0 !important;
 }
+
 .stylish-input-group button{
     border:0;
     background:transparent;
@@ -65,4 +68,106 @@ ul.navbar-right {
 .input-group {
   width: 220px;
 }
+
+.torrent-download {
+  width: 1%;
+}
+
+.torrent-title {
+  width: 30%;
+}
+
+.torrent-details {
+  width: 1%;
+}
+
+.torrent-size {
+  width: 10%;
+}
+
+.torrent-submitter {
+  width: 10%;
+}
+
+.torrent-files {
+  width: 6%;
+}
+
+.torrent-date {
+  width: 10%;
+}
+
+
+.table-responsive {
+  margin-left: 20px;
+ background-color: rgba(245, 245, 245, 0.7);
+ border: 1px solid #454E45;
+}
+
+.align-text-center {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bolder;
+  color: #100709;
+  text-shadow: 0.4px 0px #37308B;
+}
+
+.comment-icon {
+  width: 30px;
+}
+
+table > tbody > tr.torrent > td {
+  vertical-align: middle;
+}
+
+.upload {
+  vertical-align: middle;
+}
+
+#navbar-collapse {
+background-color: #141313;
+/*border: 2px solid black;*/
+}
+
+.navbar-header {
+  height: 73px;
+  background-color: #141313;
+}
+
+.center-upload {
+  padding: 0 !important;
+}
+
+body {
+  background-color: rgba(245, 245, 245, 0.75);
+  background-image: url("/images/background.jpg");
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0;
+  height: 690px;
+  max-width: 1600px;
+  background-position: top right;
+  margin: auto;
+}
+
+.upload-div {
+  background-color: rgba(245, 245, 245, 0.75);
+  width: 500px;
+}
+
+.btn-success {
+  background-color:black;
+  border-color:blue;
+}
+
+.resizedTextbox {
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #B9B9B9;
+ }
 

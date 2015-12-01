@@ -32,19 +32,22 @@ router.get('/api/torrents', function (req, res) {
     } else {
       res.send(torrents);
     }
-  })
+  }).populate('submitter');
 })
 
 // CREATE
-router.post('/api/torrents', function (req, res) {
-  var torrent = new Torrent(req.body.torrent);
-  torrent.save(function(error){
+router.post('/api/torrents', authenticatedUser, function (req, res) {
+  var params = req.body.torrent;
+  // req.user // --> current user | refer to passport.js
+  params.submitter = req.user
+
+  Torrent.create(params, function (error, torrent){
     if (error) {
       res.json({message: "Torrent create failed" + error});
     } else {
       res.json({torrent: torrent});
     }
-  });
+  })
 })
 
 // SHOW
